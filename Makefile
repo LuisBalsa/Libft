@@ -1,6 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/19 15:35:28 by luide-so          #+#    #+#              #
+#    Updated: 2023/04/19 15:35:38 by luide-so         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 EXECUTABLE = app
-SRC = ${wildcard ft_*.c}
+SRC = ${filter-out ${SRC_BONUS}, ${wildcard ft_*.c}}
+SRC_BONUS = ft_lstmap.c
 OBJS = ${SRC:.c=.o}
 HEADER = libft.h
 INCLUDE = -I .
@@ -21,6 +34,7 @@ ${NAME}: ${OBJS} ${HEADER}
 $(EXECUTABLE): ${NAME} main.c
 	@${CC} ${CFLAGS} ${INCLUDE} main.c ${NAME} -o ${EXECUTABLE}
 	@echo "\n${EXECUTABLE} created"
+	@./${EXECUTABLE}
 
 clean:
 	@${RM} ${OBJS}
