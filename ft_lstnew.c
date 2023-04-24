@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:17:30 by luide-so          #+#    #+#             */
-/*   Updated: 2023/04/24 11:32:16 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/04/24 22:26:20 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*newnode;
+	t_list	*newlst;
 
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (!newnode)
+	newlst = (t_list *)malloc(sizeof(t_list));
+	if (!newlst)
 		return (NULL);
-	newnode->content = content;
-	newnode->next = NULL;
-	return (newnode);
+	newlst->content = content;
+	newlst->next = NULL;
+	return (newlst);
 }
