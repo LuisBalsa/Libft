@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:54:53 by luide-so          #+#    #+#             */
-/*   Updated: 2023/04/22 12:38:16 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:27:14 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 	if (little[0] == '\0')
 		return ((char *)big);
 	i = 0;
-	while (big[i] && len--)
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j] && big[i + j] && len--)
+		while (big[i + j] == little[j] && big[i + j] && i + j < len)
 		{
 			if (!little[j + 1])
 				return ((char *)&big[i]);

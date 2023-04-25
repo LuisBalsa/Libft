@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:04:32 by luide-so          #+#    #+#             */
-/*   Updated: 2023/04/22 12:37:58 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/04/25 21:42:15 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*c;
-	size_t	i;
+	char	*substr;
+	size_t	str_size;
 
-	c = (char *) malloc(len * sizeof(char) + 1);
-	if (!c)
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		c[i] = s[start + i];
-		i++;
-	}
-	c[i] = '\0';
-	return (c);
+	str_size = ft_strlen(s);
+	if (str_size < start)
+		len = 0;
+	else if (len > str_size - start)
+		len = str_size - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	ft_memcpy(substr, s + start, len);
+	substr[len] = '\0';
+	return (substr);
 }

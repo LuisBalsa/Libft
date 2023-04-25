@@ -6,14 +6,14 @@
 #    By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:35:28 by luide-so          #+#    #+#              #
-#    Updated: 2023/04/24 23:13:52 by luide-so         ###   ########.fr        #
+#    Updated: 2023/04/25 23:11:15 by luide-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SRC = ${filter-out ${SRC_BONUS}, ${wildcard ft_*.c}}
 SRC_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-		ft_lstiter.c ft_lstsize.c ft_lstlast.c
+		ft_lstiter.c ft_lstsize.c ft_lstlast.c ft_lstmap.c
 OBJS = ${SRC:.c=.o}
 OBJS_BONUS = ${SRC_BONUS:.c=.o}
 HEADER = libft.h
@@ -46,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re
